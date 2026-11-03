@@ -113,25 +113,25 @@ struct ab {
 };
 
 void ah() {
-    cout << "\n NABIR AVTOMATYZHOVANYKH TESTIV \n";
+    cout << "\n AUTOMATED TESTS SUITE \n";
 
     ab ai[12] = {
-        {{}, 0, {}, 0, "Porozhniy masyv"},
-        {{7}, 1, {7}, 1, "Odyn element"},
-        {{1, 2, 3, 4, 5}, 5, {1, 2, 3, 4, 5}, 5, "Uzhe vporyadkovanyy"},
-        {{5, 4, 3, 2, 1}, 5, {1, 2, 3, 4, 5}, 5, "Zvrotnyy poryadok"},
-        {{4, 1, 5, 2, 3}, 5, {1, 2, 3, 4, 5}, 5, "Zmishanyy poryadok"},
-        {{3, 1, 3, 2, 1}, 5, {1, 1, 2, 3, 3}, 5, "Povtoryuvani znachennya"},
-        {{0, -5, 8, -2, 4}, 5, {-5, -2, 0, 4, 8}, 5, "Vid'yemni chysla i nul'"},
-        {{6, 6, 6, 6}, 4, {6, 6, 6, 6}, 4, "Usi znachennya odnakovi"},
-        {{2, 1}, 2, {1, 2}, 2, "Minimal'na perestanovka"},
-        {{9, -1, 9, 0, -1, 5}, 6, {-1, -1, 0, 5, 9, 9}, 6, " Kombinovanyy vypadok"},
-        {{10, -3, 25, 0, 15, -3}, 6, {-3, -3, 0, 10, 15, 25}, 6, "Vlasnyy test 1"},
-        {{100, 50, 25, 10, 5}, 5, {5, 10, 25, 50, 100}, 5, "Vlasnyy test 2"}
+        {{}, 0, {}, 0, "Empty array"},
+        {{7}, 1, {7}, 1, "Single element"},
+        {{1, 2, 3, 4, 5}, 5, {1, 2, 3, 4, 5}, 5, "Already sorted"},
+        {{5, 4, 3, 2, 1}, 5, {1, 2, 3, 4, 5}, 5, "Reverse order"},
+        {{4, 1, 5, 2, 3}, 5, {1, 2, 3, 4, 5}, 5, "Mixed order"},
+        {{3, 1, 3, 2, 1}, 5, {1, 1, 2, 3, 3}, 5, "Duplicate values"},
+        {{0, -5, 8, -2, 4}, 5, {-5, -2, 0, 4, 8}, 5, "Negative numbers and zero"},
+        {{6, 6, 6, 6}, 4, {6, 6, 6, 6}, 4, "All identical values"},
+        {{2, 1}, 2, {1, 2}, 2, "Minimal permutation"},
+        {{9, -1, 9, 0, -1, 5}, 6, {-1, -1, 0, 5, 9, 9}, 6, "Combined case"},
+        {{10, -3, 25, 0, 15, -3}, 6, {-3, -3, 0, 10, 15, 25}, 6, "Custom test 1"},
+        {{100, 50, 25, 10, 5}, 5, {5, 10, 25, 50, 100}, 5, "Custom test 2"}
     };
 
     int aj = 0;
-    const char* ak[3] = { "Vstavky", "Vybir", "Bul'bashka" };
+    const char* ak[3] = { "Insertion", "Selection", "Bubble" };
 
     for (int g = 0; g < 3; ++g) {
         int al = 0;
@@ -162,17 +162,20 @@ void ah() {
             }
         }
         aj += al;
-        cout << "Algorytm: " << ak[g] << " | Uspishno proydeno testiv: " << al << " / 12\n";
+        cout << "Algorithm: " << ak[g] << " | Passed tests: " << al << " / 12\n";
     }
-    cout << "Zahal'nyy resultat: " << aj << " uspishnykh perevirok iz 36 mozhlyvykh.\n";
+    cout << "Total result: " << aj << " successful checks out of 36 possible.\n";
 }
 
 int main() {
-    cout << " PIDHOTOVKA DANYKH (Variant 5) \n";
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    cout << " DATA PREPARATION (Variant 5) \n";
     const int ap = 10;
     int aq[ap] = { 21, 3, 28, 13, 7, 32, 10, 2, 25, 16 };
 
-    cout << "Pochatkovyy masyv: ";
+    cout << "Initial array: ";
     d(aq, ap);
 
     long long ar = 0, as = 0;
@@ -181,8 +184,7 @@ int main() {
         as += (long long)aq[g] * aq[g];
     }
 
-    const char* ak[3] = { "Sortuvannya vstavkamy", "Sortuvannya vyborom", "ul'bashkove sortuvannya" };
-    const char* at_names[3] = { "vstavkamy", "vyborom", "bul'bashkove" };
+    const char* at_names[3] = { "insertion", "selection", "bubble" };
 
     for (int g = 0; g < 3; ++g) {
         int at[ap];
@@ -193,25 +195,25 @@ int main() {
         else if (g == 1) t = w(at, ap);
         else if (g == 2) t = z(at, ap);
 
-        cout << "\n Sortuvannya " << at_names[g] << " \n";
-        cout << "Vdysortovano: ";
+        cout << "\n=== Sorting by " << at_names[g] << " ===\n";
+        cout << "Sorted: ";
         d(at, ap);
-        cout << "Porivnyan': " << t.b << ", Peremishchen': " << t.c << "\n";
+        cout << "Comparisons: " << t.b << ", Moves: " << t.c << "\n";
 
         bool au = j(at, ap);
         bool av = k(ap, ar, as, at, ap);
 
         if (au && av) {
-            cout << "Perevirka: uspishno\n";
+            cout << "Verification: success\n";
         }
         else {
-            cout << "Perevirka: pomylka\n";
+            cout << "Verification: error\n";
         }
     }
 
     ah();
 
-    cout << "\n PORIVNYAL'NYY EKSPERYMENT (100 elementiv) \n";
+    cout << "\n COMPARATIVE EXPERIMENT (100 elements) \n";
 
     const int aw = 100;
     int ax[aw];
@@ -224,8 +226,8 @@ int main() {
         az[g] = (g * 37) % 101;
     }
 
-    const char* ba[3] = { "Zrostannya", "Spadannya", "Zmishanyy" };
-    const char* alg_short[3] = { "Vstavky", "Vybir", "Bul'bashka" };
+    const char* ba[3] = { "Ascending", "Descending", "Random" };
+    const char* alg_short[3] = { "Insertion", "Selection", "Bubble" };
 
     for (int g = 0; g < 3; ++g) {
         for (int bb = 0; bb < 3; ++bb) {
@@ -242,9 +244,9 @@ int main() {
             bool bd = j(bc, aw);
 
             cout << alg_short[g] << " | " << ba[bb]
-                << " | Porivnyan': " << t.b
-                << " | Peremishchen': " << t.c
-                << " | " << (bd ? "Uspishno" : "Pomylka") << "\n";
+                << " | Comparisons: " << t.b
+                << " | Moves: " << t.c
+                << " | " << (bd ? "Success" : "Error") << "\n";
         }
     }
 
